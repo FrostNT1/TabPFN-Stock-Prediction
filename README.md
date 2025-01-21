@@ -126,7 +126,7 @@ flowchart LR
 ---
 
 ## 9. License
-Distributed under the MIT License. See `LICENSE` file for more information.
+Distributed under the Apache 2.0 License. See `LICENSE` file for more information.
 
 ---
 
