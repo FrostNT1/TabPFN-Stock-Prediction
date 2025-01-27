@@ -141,3 +141,65 @@ We welcome improvements to:
 - Feature engineering steps  
 - Model training scripts
 - Documentation and tutorials
+
+---
+
+## 11. Results and Findings
+
+### TabPFN for Time Series Analysis: Key Insights
+
+#### Challenges
+
+1. **Structural Limitations**
+   - TabPFN's architecture, while powerful for tabular data, isn't optimized for sequential data
+   - Time window flattening (lookback period of 20) results in high-dimensional input (640 dimensions)
+   - Loss of explicit temporal structure in the data representation
+
+2. **Data Distribution**
+   - Slight class imbalance observed in market direction:
+     - Training: 3386 up vs 2966 down movements
+     - Validation: 701 up vs 558 down movements
+     - Test: 388 up vs 365 down movements
+   - Model sensitivity to market regime changes needs consideration
+
+3. **Temporal Aspects**
+   - Limited ability to capture long-term dependencies
+   - Independent sample treatment may miss important sequential patterns
+   - No built-in mechanism for temporal dependency handling
+
+#### Advantages
+
+1. **Zero-Shot Capabilities**
+   - No traditional training required
+   - Potentially more robust to market regime changes
+   - Reduced risk of overfitting to historical patterns
+
+2. **Uncertainty Quantification**
+   - Probability estimates enable confidence-based trading
+   - Enhanced risk management through probability thresholds
+   - More nuanced decision-making capability
+
+3. **Feature Interaction Analysis**
+   - Effective capture of non-linear relationships
+   - Strong handling of complex technical indicator patterns
+   - Attention mechanism provides insight into feature importance
+
+### Recommendations for Future Work
+
+1. **Model Integration**
+   - Consider ensemble approaches combining TabPFN with traditional time series models
+   - Use TabPFN's probability outputs as features for other models
+   - Implement dynamic confidence thresholds based on market conditions
+
+2. **Feature Engineering Improvements**
+   - Optimize lookback period to balance information and dimensionality
+   - Incorporate more domain-specific features
+   - Add explicit temporal features for better time awareness
+
+3. **Evaluation Framework**
+   - Implement walk-forward testing for realistic performance assessment
+   - Focus on high-confidence predictions
+   - Compare against simple baseline models
+
+### Final Assessment
+While TabPFN shows promise in handling complex tabular data, its application to stock prediction faces notable challenges. The model might be more valuable as part of a hybrid approach rather than a standalone solution. Success depends heavily on proper feature engineering and careful handling of temporal aspects. The project demonstrates both the potential and limitations of applying advanced tabular models to time series prediction tasks.
